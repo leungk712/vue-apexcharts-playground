@@ -63,6 +63,23 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <v-row>
+      <v-col cols="6">
+        <v-card>
+          <v-card-title>
+            Basic Radar (Filled)
+          </v-card-title>
+          <v-card-text>
+            <apexchart
+              width="100%"
+              :options="radarOptions"
+              :series="radarOptions.series"
+            />
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -286,6 +303,26 @@ export default {
         },
         title: {
           text: "HeatMap Chart (Single color)"
+        }
+      },
+
+      radarOptions: {
+        series: [
+          {
+            name: "Radar Series 1",
+            data: [45, 52, 38, 24, 33, 10]
+          },
+          {
+            name: "Radar Series 2",
+            data: [26, 21, 20, 6, 8, 15]
+          }
+        ],
+        labels: ["April", "May", "June", "July", "August", "September"],
+        chart: {
+          type: "radar"
+        },
+        fill: {
+          opacity: 0.5
         }
       }
     };
